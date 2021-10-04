@@ -1,5 +1,7 @@
 package com.company.formation;
 
+import java.util.Objects;
+
 public class Point3D extends Point2D{
     private Integer z =0;
 
@@ -26,6 +28,19 @@ public class Point3D extends Point2D{
         this.setZ(getZ() + dZ);
         this.setX(getX() + dX);
         this.setY(getY() + dY);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point3D)) return false;
+        Point3D point3D = (Point3D) o;
+        return Objects.equals(getZ(), point3D.getZ());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getZ());
     }
 
     public Integer getZ() {
