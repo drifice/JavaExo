@@ -1,39 +1,61 @@
 package com.company.formation;
 
 public class Point2D {
-
-    private int x = 0;
-    private int y = 0;
+    private static Integer compteur =0;
+    private Integer x;
+    private Integer y;
 
     public Point2D() {
+        this.compteur ++;
+        setX(0);
+        setY(0);
     }
 
     public Point2D(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.compteur ++;
+        setX(x);
+        setY(y);
     }
 
+    /**
+     * permet d'afficher le point
+     */
     public void afficher() {
-        System.out.println("[" + this.x + "," + this.y + "]");
+        System.out.println("["
+                .concat(this.x.toString())
+                .concat(",")
+                .concat(this.y.toString())
+                .concat("]"));
     }
 
+    /**
+     * permet de recalculer  x et y
+     * @param dX
+     * @param dY
+     */
     public void translater(int dX, int dY) {
-        this.x+=dX;
-        this.y+=dY;
+
+        this.setX(this.x + dX);
+        this.setY(this.y + dY);
     }
-    public int getX() {
+    public Integer getX() {
         return this.x;
     }
 
-    public void setX(int x) {
+    public void setX(Integer x) {
         this.x = x;
     }
 
-    public int getY() {
+    public Integer getY() {
         return this.y;
     }
 
-    public void setY(int y) {
+    public void setY(Integer y) {
         this.y = y;
     }
+
+    public static Integer getCompteur() {
+        return compteur;
+    }
+
 }
