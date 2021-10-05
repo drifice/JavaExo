@@ -2,23 +2,30 @@ package com.company.formation;
 
 import java.util.Objects;
 
-public class Point3D extends Point2D{
+public class Point3D {
     private Integer z =0;
+    private Point2D point2 = new Point2D();
 
     public Point3D() {
     }
 
-    public Point3D(int x, int y, Integer z) {
-        super(x, y);
-        this.setZ(z);
+    public Point2D getPoint2() {
+        return point2;
     }
 
+    public Point3D(Integer z) {
+        this.z = z;
+    }
+
+    public void setPoint2(Point2D point2) {
+        this.point2 = point2;
+    }
 
     public void afficher() {
         System.out.println("["
-                .concat(getX().toString())
+                .concat(this.point2.getX().toString())
                 .concat(",")
-                .concat(getY().toString())
+                .concat(this.point2.getY().toString())
                 .concat(",")
                 .concat(this.z.toString())
                 .concat("]"));
@@ -26,8 +33,8 @@ public class Point3D extends Point2D{
 
     public void translater(int dX, int dY, int dZ) {
         this.setZ(getZ() + dZ);
-        this.setX(getX() + dX);
-        this.setY(getY() + dY);
+        this.point2.setX(point2.getX() + dX);
+        this.point2.setY(point2.getY() + dY);
     }
 
     @Override
@@ -50,4 +57,6 @@ public class Point3D extends Point2D{
     public void setZ(Integer z) {
         this.z = z;
     }
+
+
 }
