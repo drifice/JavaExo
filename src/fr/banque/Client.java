@@ -2,6 +2,9 @@ package fr.banque;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Client {
     private String nom;
     private String prenom;
@@ -72,5 +75,24 @@ public class Client {
 
     public void setNumero(Integer numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Client)) return false;
+        Client client = (Client) o;
+        return Objects.equals(getNom(), client.getNom()) && Objects.equals(getPrenom(), client.getPrenom()) && Objects.equals(getAge(), client.getAge()) && Objects.equals(getNumero(), client.getNumero()) && Arrays.equals(comptes, client.comptes);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", age=" + age +
+                ", numero=" + numero +
+                ", comptes=" + Arrays.toString(comptes) +
+                '}';
     }
 }
